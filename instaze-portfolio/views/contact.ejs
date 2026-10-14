@@ -1,0 +1,29 @@
+<%- include('partials/header') %>
+
+<section class="page-hero">
+  <div class="container">
+    <p class="eyebrow">CONTACT</p>
+    <h1>LET'S <span class="neon">TALK</span></h1>
+  </div>
+</section>
+
+<section class="contact-section">
+  <div class="container grid-2">
+    <div class="contact-info">
+      <h2>GET IN TOUCH</h2>
+      <ul class="contact-list">
+        <li><strong>📍 Address</strong><br><%= data.address %></li>
+        <li><strong>📞 Phone</strong><br><%= data.phone %></li>
+        <li><strong>✉ Email</strong><br><%= data.email %></li>
+      </ul>
+    </div>
+    <form class="contact-form" action="/contact" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit" class="btn btn-neon">SEND MESSAGE</button>
+    </form>
+  </div>
+</section>
+
+<%- include('partials/footer') %>

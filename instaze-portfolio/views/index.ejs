@@ -1,0 +1,101 @@
+<%- include('partials/header') %>
+
+<!-- HERO CAROUSEL -->
+<section class="hero-carousel">
+  <div class="slides">
+    <% if (heroImages && heroImages.length > 0) { %>
+      <% heroImages.forEach((img, index) => { %>
+        <div class="slide <%= index === 0 ? 'active' : '' %>" 
+             style="background-image: url('<%= img %>');">
+          <div class="slide-overlay"></div>
+          <div class="container slide-content">
+            <p class="eyebrow">WELCOME TO INSTAZE</p>
+            <h1 class="hero-title">
+              WE DON'T JUST MAKE<br>
+              GAMES – WE CREATE<br>
+              <span class="neon">LEGENDS</span>
+            </h1>
+            <p class="hero-desc"><%= data.description %></p>
+            <a href="/projects" class="btn btn-dark">OUR PROJECT</a>
+          </div>
+        </div>
+      <% }) %>
+    <% } else { %>
+      <div class="slide active" style="background: linear-gradient(135deg, #8a938e 0%, #2a2a40 100%);">
+        <div class="slide-overlay"></div>
+        <div class="container slide-content">
+          <p class="eyebrow">WELCOME TO INSTAZE</p>
+          <h1 class="hero-title">AUCUNE IMAGE<br>DANS <span class="neon">heropages/</span></h1>
+          <p class="hero-desc">Ajoute des images dans public/img/heropages/</p>
+        </div>
+      </div>
+    <% } %>
+  </div>
+
+  <button class="carousel-arrow prev" aria-label="Précédent">‹</button>
+  <button class="carousel-arrow next" aria-label="Suivant">›</button>
+
+  <div class="carousel-dots">
+    <% (heroImages || []).forEach((img, index) => { %>
+      <span class="dot <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>"></span>
+    <% }) %>
+  </div>
+</section>
+
+<!-- RECENT WORK -->
+<section class="recent-work">
+  <div class="container">
+    <div class="section-title">
+      <svg width="60" height="60" viewBox="0 0 60 60">
+        <path d="M10 30 L20 20 L25 25 L35 15 L40 20 L50 10 L50 40 L40 45 L30 40 L20 45 L10 40 Z" fill="#00ff88"/>
+      </svg>
+      <h2>OUR RECENT WORK</h2>
+    </div>
+
+    <div class="projects-grid">
+      <% data.recentWork.forEach(project => { %>
+        <div class="project-tile <%= project.class %>">
+          <div class="tile-overlay">
+            <h3><%= project.title %></h3>
+          </div>
+        </div>
+      <% }) %>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT IS INSTAZE -->
+<section class="what-is">
+  <div class="container grid-2">
+    <div class="what-text">
+      <h2>WHAT IS INSTAZE ?</h2>
+      <p><%= data.aboutText %></p>
+    </div>
+    <div class="what-visual">
+      <svg viewBox="0 0 400 400" class="splash-svg">
+        <polygon points="200,50 250,150 320,120 300,200 380,220 320,270 340,350 250,320 200,380 150,320 60,350 80,270 20,220 100,200 80,120 150,150" fill="#ff00aa"/>
+        <polygon points="200,100 230,180 290,160 270,220 330,240 280,270 290,330 230,300 200,340 170,300 110,330 120,270 70,240 130,220 110,160 170,180" fill="#00ff88"/>
+        <polygon points="200,150 220,200 260,190 245,225 285,240 250,255 255,290 225,270 200,300 175,270 145,290 150,255 115,240 155,225 140,190 180,200" fill="#ff6600"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<section class="cta-band">
+  <div class="container cta-grid">
+    <div class="cta-left">
+      <div class="green-block"></div>
+      <div class="call-card">
+        <span class="phone-icon">📞</span>
+        <p class="call-label">CALL US NOW</p>
+        <p class="call-number"><%= data.phone %></p>
+      </div>
+    </div>
+    <div class="cta-right">
+      <h2>WE ARE THE PERFECT<br>TEAM TO BRING<br>YOUR GAME TO LIFE!</h2>
+    </div>
+  </div>
+</section>
+
+<%- include('partials/footer') %>
