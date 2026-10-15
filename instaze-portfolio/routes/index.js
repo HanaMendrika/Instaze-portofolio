@@ -25,14 +25,13 @@ const siteData = {
   address: 'Eto dogo fa tsy ako ny adresse',
   aboutText: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.",
   recentWork: [
-    { id: 1, title: 'Cyber Racer', class: 'large' },
-    { id: 2, title: 'Neon Warriors', class: 'large' },
-    { id: 3, title: 'Pixel Quest', class: 'medium' },
-    { id: 4, title: 'Dark Realms', class: 'medium' },
-    { id: 5, title: 'Star Forge', class: 'medium' },
-    { id: 6, title: 'Void Runner', class: 'medium' },
-    { id: 7, title: 'Iron Legends', class: 'medium' },
-    { id: 8, title: 'Echo Storm', class: 'large' }
+    { id: 1, title: 'Mythara', class: 'large' },
+    { id: 2, title: 'Ketrika poissonerrie', class: 'large' },
+    { id: 3, title: 'D-Bit', class: 'medium' },
+    { id: 4, title: '...', class: 'medium' },
+    { id: 5, title: '...', class: 'medium' },
+    { id: 6, title: '...', class: 'medium' },
+    { id: 7, title: '...', class: 'medium' }
   ]
 };
 
