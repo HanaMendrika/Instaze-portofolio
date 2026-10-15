@@ -1,98 +1,105 @@
 <%- include('partials/header') %>
 
-<!-- HERO CAROUSEL -->
-<section class="hero-carousel">
-  <div class="slides">
-    <% if (heroImages && heroImages.length > 0) { %>
-      <% heroImages.forEach((img, index) => { %>
-        <div class="slide <%= index === 0 ? 'active' : '' %>" 
-             style="background-image: url('<%= img %>'); ">
-          <div class="slide-overlay"></div>
-          <div class="container slide-content">
-            <p class="eyebrow">WELCOME TO INSTAZE</p>
-            <h1 class="hero-title">
-              WE DON'T JUST MAKE<br>
-              GAMES – WE CREATE<br>
-              <span class="neon">LEGENDS</span>
-            </h1>
-            <p class="hero-desc"><%= data.description %></p>
-            <a href="/projects" class="btn btn-dark">OUR PROJECT</a>
+  <!-- HERO CAROUSEL -->
+  <section class="hero-carousel">
+    <div class="slides">
+      <% if (heroImages && heroImages.length> 0) { %>
+        <% heroImages.forEach((img, index)=> { %>
+          <div class="slide <%= index === 0 ? 'active' : '' %>" style="background-image: url('<%= img %>'); ">
+            <div class="slide-overlay"></div>
+            <div class="container slide-content">
+              <p class="eyebrow">WELCOME TO INSTASE</p>
+              <h1 class="hero-title">
+                WE DON'T JUST MAKE<br>
+                GAMES – WE CREATE<br>
+                <span class="neon">LEGENDS</span>
+              </h1>
+              <!-- <p class="hero-desc">
+                <%= data.description %>
+              </p> -->
+              <a href="/projects" class="btn btn-dark">OUR PROJECT</a>
+            </div>
           </div>
-        </div>
-      <% }) %>
-    <% } else { %>
-      <div class="slide active" style="background: linear-gradient(135deg, #8a938e 0%, #2a2a40 100%);">
-        <div class="slide-overlay"></div>
-        <div class="container slide-content">
-          <p class="eyebrow">WELCOME TO INSTAZE</p>
-          <h1 class="hero-title">AUCUNE IMAGE<br>DANS <span class="neon">heropages/</span></h1>
-          <p class="hero-desc">Ajoute des images dans public/img/heropages/</p>
-        </div>
+          <% }) %>
+            <% } else { %>
+              <div class="slide active" style="background: linear-gradient(135deg, #8a938e 0%, #2a2a40 100%);">
+                <div class="slide-overlay"></div>
+                <div class="container slide-content">
+                  <p class="eyebrow">WELCOME TO INSTASE</p>
+                  <h1 class="hero-title">AUCUNE IMAGE<br>DANS <span class="neon">heropages/</span></h1>
+                  <p class="hero-desc">Ajoute des images dans public/img/heropages/</p>
+                </div>
+              </div>
+              <% } %>
+    </div>
+
+    <button class="carousel-arrow prev" aria-label="Précédent">‹</button>
+    <button class="carousel-arrow next" aria-label="Suivant">›</button>
+
+    <div class="carousel-dots">
+      <% (heroImages || []).forEach((img, index)=> { %>
+        <span class="dot <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>"></span>
+        <% }) %>
+    </div>
+  </section>
+
+  <!-- RECENT WORK -->
+  <section class="recent-work">
+    <div class="container">
+
+      <div class="section-title">
+        <img src="/img/icon/Property 1=FULL.png" alt="icon" class="section-icon">
+        <h2>OUR RECENT WORK</h2>
       </div>
-    <% } %>
-  </div>
 
-  <button class="carousel-arrow prev" aria-label="Précédent">‹</button>
-  <button class="carousel-arrow next" aria-label="Suivant">›</button>
-
-  <div class="carousel-dots">
-    <% (heroImages || []).forEach((img, index) => { %>
-      <span class="dot <%= index === 0 ? 'active' : '' %>" data-index="<%= index %>"></span>
-    <% }) %>
-  </div>
-</section>
-
-<!-- RECENT WORK -->
-<section class="recent-work">
-  <div class="container">
-
-    <div class="section-title">
-  <img src="/img/icon/Property 1=FULL.png" alt="icon" class="section-icon">
-  <h2>OUR RECENT WORK</h2>
-</div>
-
-    <div class="projects-grid">
-      <% data.recentWork.forEach(project => { %>
-        <div class="project-tile <%= project.class %>">
-          <div class="tile-overlay">
-            <h3><%= project.title %></h3>
+      <div class="projects-grid">
+        <% data.recentWork.forEach(project=> { %>
+          <div class="project-tile <%= project.class %>">
+            <div class="tile-overlay">
+              <h3>
+                <%= project.title %>
+              </h3>
+            </div>
           </div>
-        </div>
-      <% }) %>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT IS INSTAZE -->
-<section class="what-is">
-  <div class="container grid-2">
-    <div class="what-text">
-      <h2>WHAT IS INSTAZE ?</h2>
-      <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>
-    </div>
-    <div class="what-visual">
-      <svg viewBox="0 0 400 400" class="splash-svg">
-        <img src="/img/icon/Layer_1.png" alt="icon" class="img-what">
-      </svg>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<section class="cta-band">
-  <div class="container cta-grid">
-    <div class="cta-left">
-      <div class="green-block"></div>
-      <div class="call-card">
-        <span class="phone-icon">📞</span>
-        <p class="call-label">CALL US NOW</p>
-        <p class="call-number"><%= data.phone %></p>
+          <% }) %>
       </div>
     </div>
-    <div class="cta-right">
-      <h2>WE ARE THE PERFECT<br>TEAM TO BRING<br>YOUR GAME TO LIFE!</h2>
-    </div>
-  </div>
-</section>
+  </section>
 
-<%- include('partials/footer') %>
+  <!-- WHAT IS INSTASE -->
+  <section class="what-is">
+    <div class="container grid-2">
+      <div class="what-text">
+        <h2>WHAT IS INSTASE ?</h2>
+        <p><b>INSTASE</b> is a freelance studio built by people who love games. We team up with founders, brands and indie
+          creators to turn rough ideas into polished, playable products. Whether you need a full game, a prototype, or
+          the art and code to finish one, we bring the craft and the care.</p>
+      </div>
+      <div class="what-visual">
+        <svg viewBox="0 0 400 400" class="splash-svg overlap">
+          <img src="/img/icon/Layer_1.png" alt="icon" class="img-what">
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="container cta-grid">
+      <div class="cta-left">
+        <div class="green-block"></div>
+        <div class="call-card">
+          <span class="phone-icon">📞</span>
+          <p class="call-label">CALL US NOW</p>
+          <p class="call-number">
+            <%= data.phone %>
+          </p>
+        </div>
+      </div>
+      <div class="cta-right">
+        <h2>WE ARE THE PERFECT<br>TEAM TO BRING<br>YOUR GAME TO LIFE!</h2>
+      </div>
+    </div>
+  </section>
+
+  <%- include('partials/footer') %>

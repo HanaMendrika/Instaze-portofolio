@@ -16,5 +16,5 @@ app.use('/', indexRouter);
 app.use((req, res) => res.status(404).render('404'));
 
 app.listen(PORT, () => {
-  console.log(`🎮 INSTAZE lancé sur http://localhost:${PORT}`);
+  console.log(`🎮 INSTASE lancé sur http://localhost:${PORT}`);
 });

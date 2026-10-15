@@ -9,7 +9,7 @@ toggle?.addEventListener('click', () => {
   navLinks.style.top = '100%';
   navLinks.style.left = '0';
   navLinks.style.right = '0';
-  navLinks.style.background = '#0a0a0a';
+  navLinks.style.background = '#0F0A0A';
   navLinks.style.padding = '2rem';
   navLinks.style.zIndex = '99';
 });
