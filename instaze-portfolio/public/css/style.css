@@ -619,3 +619,9 @@ body {
   height: 50px;
   object-fit: contain;
 }
+
+.img-what
+{
+  position: relative;
+  margin-top: -460px;
+}
