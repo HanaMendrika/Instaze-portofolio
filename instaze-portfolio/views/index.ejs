@@ -6,7 +6,7 @@
     <% if (heroImages && heroImages.length > 0) { %>
       <% heroImages.forEach((img, index) => { %>
         <div class="slide <%= index === 0 ? 'active' : '' %>" 
-             style="background-image: url('<%= img %>');">
+             style="background-image: url('<%= img %>'); ">
           <div class="slide-overlay"></div>
           <div class="container slide-content">
             <p class="eyebrow">WELCOME TO INSTAZE</p>
